@@ -1,0 +1,110 @@
+:root {
+  --bg: #eef1f5;
+  --card: #ffffff;
+  --ink: #1b2433;
+  --mute: #5d6b82;
+  --accent: #4f46e5;
+  --accent-hover: #4338ca;
+  --border: #d5dbe5;
+  color-scheme: light dark;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #121821;
+    --card: #1f2937;
+    --ink: #e8edf5;
+    --mute: #93a1b8;
+    --accent: #6366f1;
+    --accent-hover: #818cf8;
+    --border: #334155;
+  }
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: system-ui, sans-serif;
+}
+
+/* Buttons */
+button {
+  font: inherit;
+  cursor: pointer;
+  border: 0;
+  border-radius: 8px;
+  padding: 10px 16px;
+  background: var(--accent);
+  color: #fff;
+}
+button:hover { background: var(--accent-hover); }
+
+/* Auth form */
+.auth-page {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 20px;
+}
+.auth-form {
+  width: 100%;
+  max-width: 380px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+.auth-form h2 { margin: 0 0 4px; font-size: 1.6rem; }
+.auth-form input {
+  font: inherit;
+  padding: 10px 12px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--bg);
+  color: var(--ink);
+}
+.auth-form input:focus {
+  outline: 2px solid var(--accent);
+  border-color: transparent;
+}
+.auth-form .link {
+  background: none;
+  color: var(--accent);
+  padding: 0;
+}
+.auth-form .link:hover { background: none; text-decoration: underline; }
+.error { color: #dc2626; margin: 0; font-size: 0.9rem; }
+
+/* Dashboard */
+.page { max-width: 900px; margin: 0 auto; padding: 24px 20px; }
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+.topbar h1 { margin: 0; }
+.Dashboard {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+}
+.Dashboard > div {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 24px;
+  text-align: center;
+  transition: transform 0.15s;
+}
+.Dashboard > div:hover { transform: translateY(-3px); }
+.Dashboard img { width: 48px; height: 48px; margin-bottom: 8px; }
+.Dashboard h3 { margin: 0; color: var(--mute); font-weight: 600; }
